@@ -12,13 +12,13 @@ const port = process.env.PORT || 3001;
 serv.use(cors());
 serv.use(bodyParser.json());
 
-// const getTodo = require('./routes/getTodo')
+const getTodo = require('./Route/GETtodos')
 const newTodo = require('./Route/newTodo')
 // const delTodo = require('./routes/getTodo')
 // const updTodo = require('./routes/getTodo')
 // const sortTodo = require('./routes/getTodo')
 
-// serv.use('/api', getTodo)
+serv.use('/API', getTodo)
 serv.use('/API', newTodo)
 // serv.use('/api', delTodo)
 // serv.use('/api', updTodo)
