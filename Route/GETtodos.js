@@ -12,4 +12,22 @@ router.get('/gettodos', (req, res) => {
     });
 });
 
+router.put('/updtodo', (req, res) => {
+    let todoId = req.body.id;
+    let title = req.body.title;
+    let starred = req.body.starred;
+    let done = req.body.done;
+    let editMode = req.body.editMode;
+
+    Todos.updateOne(
+        { _id: todoId},
+        { $set: { title: title, starred: starred, done: done, editMode: editMode} },
+        function(err){
+            if(err)
+                res.json({success: false, msg: "not upd"});
+            else
+                res.json({success: true, msg: "upd successful"});
+        })
+});
+
 module.exports = router;
