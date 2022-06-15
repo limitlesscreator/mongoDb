@@ -15,13 +15,13 @@ serv.use(bodyParser.json());
 const getTodo = require('./Route/GETtodos')
 const newTodo = require('./Route/newTodo')
 // const delTodo = require('./routes/getTodo')
-// const updTodo = require('./routes/getTodo')
+const updTodo = require('./Route/GETtodos')
 // const sortTodo = require('./routes/getTodo')
 
 serv.use('/API', getTodo)
 serv.use('/API', newTodo)
 // serv.use('/api', delTodo)
-// serv.use('/api', updTodo)
+serv.use('/api', updTodo)
 // serv.use('/api', sortTodo)
 
 serv.listen(port, ()=>{
@@ -31,12 +31,11 @@ serv.listen(port, ()=>{
 
 mongoose.connect(connectDB.todos, { useNewUrlParser: true, useUnifiedTopology: true });
 
-//mongoose.set('useFindAndModify', false);
 
 mongoose.connection.on('connected', () => {
-    console.log("sucsses");
+    console.log("success");
 });
 
 mongoose.connection.on('error', (err) => {
-    console.log("not sucsses" + err);
+    console.log("not success" + err);
 });

@@ -18,6 +18,7 @@ router.put('/updtodo', (req, res) => {
     let starred = req.body.starred;
     let done = req.body.done;
     let editMode = req.body.editMode;
+    console.log(req)
 
     Todos.updateOne(
         { _id: todoId},
@@ -25,9 +26,13 @@ router.put('/updtodo', (req, res) => {
         function(err){
             if(err)
                 res.json({success: false, msg: "not upd"});
-            else
+            else {
                 res.json({success: true, msg: "upd successful"});
+                console.log({ _id: todoId})
+                console.log(title, starred, done, editMode)
+            }
         })
+
 });
 
 module.exports = router;
