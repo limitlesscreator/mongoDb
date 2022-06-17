@@ -35,4 +35,17 @@ router.put('/updtodo', (req, res) => {
 
 });
 
+router.delete('/deltodo/:id', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
+    Todos.findByIdAndRemove(req.params.id, function(err, todos)
+    {
+        if(err)
+            res.json({success: false});
+        else
+            res.json({success: true});
+    });
+});
+
+
 module.exports = router;

@@ -14,13 +14,13 @@ serv.use(bodyParser.json());
 
 const getTodo = require('./Route/GETtodos')
 const newTodo = require('./Route/newTodo')
-// const delTodo = require('./routes/getTodo')
+const delTodo = require('./Route/GETtodos')
 const updTodo = require('./Route/GETtodos')
 // const sortTodo = require('./routes/getTodo')
 
 serv.use('/API', getTodo)
 serv.use('/API', newTodo)
-// serv.use('/api', delTodo)
+serv.use('/api', delTodo)
 serv.use('/api', updTodo)
 // serv.use('/api', sortTodo)
 
